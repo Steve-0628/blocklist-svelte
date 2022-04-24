@@ -6,6 +6,8 @@
   let href = "/login"
   if (location.host === "hisubway.online")
     href = "http://bulkblock.hisubway.online/login?hisubway=true"
+  else if (location.host === "blocklist.hmpf.club")
+    href = "https://blocker.hmpf.club/login?blocklist=true"
 </script>
 
 <main id="guest">
@@ -45,7 +47,7 @@
   </div>
   <a class="block" {href}><span>Twitterでログイン</span></a>
 </main>
-<footer>
+<!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
-</footer>
-<iframe src={sideUrl} title="side" />
+</footer> -->
+<!-- <iframe src={sideUrl} title="side" /> -->

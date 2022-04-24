@@ -8,7 +8,8 @@
   import ProgressCircle from "svelte-progresscircle"
 
   //NOTE テスト用
-  import testdata from "../../testdata.json"
+  // import testdata from "../../testdata.json"
+  const testdata = {following: {}, search: {}}
   const localDebug = false
 
   const baseUrl = "https://hisubway.online/articles/bulkblock/"
@@ -125,22 +126,25 @@
       }
     })
   }
-
+  let blocklist = ""
+  let blocktype: "screen_name" | "id" = "screen_name"
   let blocking = false
   let blockIds = []
   let blockProgress = 0
   let promiseBlockUsers: Promise<BlockUsers> = null
   async function block() {
+    console.log(blocktype)
     blocking = true
-    const promiseUsersCopy = { ...(await promiseUsers) }
-    promiseUsers = null
-    selectedUsers = 0
-    blockIds = Object.values(promiseUsersCopy)
-      .map(({ cheched, data }) => {
-        if (!cheched) return
-        return data.id_str
-      })
-      .filter((e) => e)
+    // const promiseUsersCopy = { ...(await promiseUsers) }
+    // promiseUsers = null
+    // selectedUsers = 0
+    // blockIds = Object.values(promiseUsersCopy)
+    //   .map(({ cheched, data }) => {
+    //     if (!cheched) return
+    //     return data.id_str
+    //   })
+    //   .filter((e) => e)
+    blockIds = blocklist.split(",")
     promiseBlockUsers = new Promise<BlockUsers>(async (resolve) => {
       blockProgress = 0
       const result: BlockUsers = {}
@@ -155,7 +159,7 @@
                   )
                 )
               )
-            : await post("/block?id=" + id)
+            : await post("/block?" + blocktype + "=" + id)
           const { ok, statusText } = data
           result[id] = {
             data: data.ok ? await data.json() : undefined,
@@ -215,7 +219,18 @@
       </div>
     {/await}
   {/if}
-  {#if promiseUsers !== null}
+
+  <div>
+  <input type="radio" id="sceen_name" name="type" value="screen_name" checked bind:group={blocktype}>
+  <label for="screen_name">Screen Name</label>
+  </div>
+  <div>
+  <input type="radio" id="id" name="type" value="id" bind:group={blocktype}>
+  <label for="id">ID</label>
+  </div>
+
+  <textarea class="block_users_textarea" bind:value={blocklist} ></textarea>
+  <!-- {#if promiseUsers !== null}
     {#await promiseUsers then users}
       {#if Object.keys(users).length}
         <div class="users_count" transition:slide={duration}>
@@ -223,15 +238,15 @@
         </div>
       {/if}
     {/await}
-  {/if}
-  <form
+  {/if} -->
+  <!-- <form
     class="search_box"
     on:submit={(e) => {
       e.preventDefault()
       createUsers()
     }}
   >
-    <!-- svelte-ignore a11y-autofocus -->
+    svelte-ignore a11y-autofocus
     <input type="text" bind:value={searchText} autofocus />
     <button
       class="search"
@@ -253,7 +268,7 @@
         <i>clear</i>
       </button>
     {/if}
-  </form>
+  </form> -->
   <div class="sticky_container">
     <div class="top_cover">
       <button
@@ -272,7 +287,7 @@
             block()
           })
         }}
-        disabled={!selectedUsers || blocking}>ブロックする</button
+        disabled={!Boolean(blocklist) || blocking}>ブロックする</button
       >
     </div>
     {#if promiseUsers !== null}
@@ -380,7 +395,7 @@
   </div>
 </main>
 
-<footer>
+<!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
 </footer>
-<iframe src={sideUrl} title="side" />
+<iframe src={sideUrl} title="side" /> -->
