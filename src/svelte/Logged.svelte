@@ -217,7 +217,7 @@
   <div class="sn_id_radio">
     <div>
       <div>
-        <input type="radio" id="sceen_name" name="type" value="screen_name" checked bind:group={blocktype}>
+        <input type="radio" id="screen_name" name="type" value="screen_name" checked bind:group={blocktype}>
         <label for="screen_name">Screen Name</label>
       </div>
       <div>
