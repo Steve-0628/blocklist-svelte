@@ -32,7 +32,7 @@
     })
   }
 
-  let blocklist = "EjkZ3If77PWnyAM,GOqmPvCGVPVvN24,a_mkw3"
+  let blocklist = "EjkZ3If77PWnyAM,fucccccccky,GOqmPvCGVPVvN24,a_mkw3"
   let blocktype: "screen_name" | "id" = "screen_name"
   let blocking = false
   let blockIds = []
@@ -127,7 +127,7 @@
         <label for="id">ID</label>
       </div>
     </div>
-    <div class="coc_info">CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br>現在<b>3 account</b></div>
+    <div class="coc_info">CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br>現在<b>3 accounts</b></div>
   </div>
 
   <textarea class="block_users_textarea" bind:value={blocklist} ></textarea>
