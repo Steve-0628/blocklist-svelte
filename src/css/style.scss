@@ -172,8 +172,11 @@ button {
   > header {
     grid-area: h;
     height: 56px;
+    display:flex;
+    align-items:center;
     > h1 {
-      display: none;
+      font-size: 2em;
+      margin-left:5%;
     }
     > iframe {
       grid-area: i;
@@ -188,6 +191,15 @@ button {
 
     > .search_box {
       margin-top: 1rem;
+    }
+    > .sn_id_radio {
+      display: flex;
+
+      > .coc_info {
+        background-color: #fff3;
+        border-radius: var(--base-radius);
+        padding-left:5%;
+      }
     }
   }
 
@@ -222,6 +234,7 @@ button {
 .block_users_textarea {
   background-color: white;
   width:100%;
+  padding: 3px;
 }
 
 .search_box {

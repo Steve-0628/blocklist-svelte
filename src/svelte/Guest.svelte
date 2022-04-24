@@ -1,45 +1,22 @@
 <script lang="ts" context="module">
-  const baseUrl = "https://hisubway.online/articles/bulkblock/"
-  const footerUrl = baseUrl + "footer/"
-  const sideUrl = baseUrl + "side/"
-
-  let href = "/login"
-  if (location.host === "hisubway.online")
-    href = "http://bulkblock.hisubway.online/login?hisubway=true"
-  else if (location.host === "blocklist.hmpf.club")
-    href = "https://blocker.hmpf.club/login?blocklist=true"
+  let href = "https://blocker.hmpf.club/login?blocklist=true"
 </script>
 
 <main id="guest">
-  <a
-    class="hisubway"
-    href="https://hisubway.online"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      src="https://hisubway.online/transfer/hisubway/img/favicon_512.png"
-      alt="HiSubway"
-    /></a
-  >
   <div>
-    <h1>BulkBlock</h1>
+    <h1>BlockList</h1>
     <section>
       <h2>About</h2>
       <p>
-        キーワードをTwitterで検索し、見つかったアカウントを一括ブロックできるツールです。使い方は、<a
-          href="https://hisubway.online/articles/bulkblock/help"
-          target="_blank"
-          rel="noopener noreferrer">BulkBlockの使い方</a
-        >をお読みください。
+        ブロックしたいアカウントでログインし、このアプリを連携します。
       </p>
       <p>
-        特定のアカウントにリプライをしているアカウント、特定のツイートを引用しているアカウント、Botを使ってスパムツイートをしているアカウントなど、詳細な絞り込みも可能です。詳しくは<a
-          href="https://hisubway.online/articles/bulkblock/commands"
-          target="_blank"
-          rel="noopener noreferrer">検索コマンドについて</a
-        >から。
+        ブロックするボタンを押すと自動で対象アカウントを一括ブロックします。
       </p>
+      <p>
+        使い方は以上です。追加して欲しいID等ございましたら<a href="https://twitter.com/lunalightp" target="_blank">@​lunalightp</a>までDMでお知らせください。
+      </p>
+    
       <p>
         このツールでは、Twitterアカウントによる認証が必要です。ツイートやフォローの権限が要求されますが、このツールではブロック以外の操作はしません。
       </p>

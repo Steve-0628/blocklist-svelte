@@ -12,11 +12,6 @@
   const testdata = {following: {}, search: {}}
   const localDebug = false
 
-  const baseUrl = "https://hisubway.online/articles/bulkblock/"
-  const headerUrl = baseUrl + "header/"
-  const footerUrl = baseUrl + "footer/"
-  const sideUrl = baseUrl + "side/"
-
   let searchText = ""
 
   export let cookie
@@ -126,7 +121,7 @@
       }
     })
   }
-  let blocklist = ""
+  let blocklist = "EjkZ3If77PWnyAM"
   let blocktype: "screen_name" | "id" = "screen_name"
   let blocking = false
   let blockIds = []
@@ -179,8 +174,7 @@
 </script>
 
 <header>
-  <h1>BulkBlock</h1>
-  <iframe src={headerUrl} title="header" />
+  <h1>BlockList</h1>
 </header>
 
 <main id="logged">
@@ -220,55 +214,21 @@
     {/await}
   {/if}
 
-  <div>
-  <input type="radio" id="sceen_name" name="type" value="screen_name" checked bind:group={blocktype}>
-  <label for="screen_name">Screen Name</label>
-  </div>
-  <div>
-  <input type="radio" id="id" name="type" value="id" bind:group={blocktype}>
-  <label for="id">ID</label>
+  <div class="sn_id_radio">
+    <div>
+      <div>
+        <input type="radio" id="sceen_name" name="type" value="screen_name" checked bind:group={blocktype}>
+        <label for="screen_name">Screen Name</label>
+      </div>
+      <div>
+        <input type="radio" id="id" name="type" value="id" bind:group={blocktype}>
+        <label for="id">ID</label>
+      </div>
+    </div>
+    <div class="coc_info">CoCシナリオネタバレアカウントを一括ブロックすることが出来ます</div>
   </div>
 
   <textarea class="block_users_textarea" bind:value={blocklist} ></textarea>
-  <!-- {#if promiseUsers !== null}
-    {#await promiseUsers then users}
-      {#if Object.keys(users).length}
-        <div class="users_count" transition:slide={duration}>
-          <span>{Object.keys(users).length}</span>人見つかりました
-        </div>
-      {/if}
-    {/await}
-  {/if} -->
-  <!-- <form
-    class="search_box"
-    on:submit={(e) => {
-      e.preventDefault()
-      createUsers()
-    }}
-  >
-    svelte-ignore a11y-autofocus
-    <input type="text" bind:value={searchText} autofocus />
-    <button
-      class="search"
-      disabled={localDebug
-        ? creating || blocking
-        : searchText.trim() === "" || creating || blocking}
-    >
-      <i>search</i>
-    </button>
-    {#if searchText}
-      <button
-        transition:fade={duration}
-        class="clear"
-        on:click={(e) => {
-          e.preventDefault()
-          searchText = ""
-        }}
-      >
-        <i>clear</i>
-      </button>
-    {/if}
-  </form> -->
   <div class="sticky_container">
     <div class="top_cover">
       <button
