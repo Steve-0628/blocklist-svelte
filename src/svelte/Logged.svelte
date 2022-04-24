@@ -127,7 +127,9 @@
         <label for="id">ID</label>
       </div>
     </div>
-    <div class="coc_info">CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br>現在<b>3 accounts</b></div>
+    <div class="coc_info">CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br>現在<b>3 accounts</b><br>
+      <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
+      <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a></div>
   </div>
 
   <textarea class="block_users_textarea" bind:value={blocklist} ></textarea>
