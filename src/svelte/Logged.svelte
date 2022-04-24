@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Users, User, BlockUsers, BlockUser } from "src/types"
-  import { isFullUser, Status } from "twitter-d"
 
   import { fade, slide } from "svelte/transition"
   const duration = { duration: 300 }
@@ -11,8 +10,6 @@
   // import testdata from "../../testdata.json"
   const testdata = {following: {}, search: {}}
   const localDebug = false
-
-  let searchText = ""
 
   export let cookie
 
@@ -35,92 +32,6 @@
     })
   }
 
-  // 検索
-  let promiseUsers: Promise<Users> = null
-  async function search() {
-    return new Promise<{
-      statuses: Status[]
-    }>(async (resolve, reject) => {
-      try {
-        const data = localDebug
-          ? //NOTE テスト用
-            new Response(
-              await new Promise((resolve) =>
-                setTimeout(() => resolve(JSON.stringify(testdata.search)), 1000)
-              )
-            )
-          : await get("/search?q=" + encodeURIComponent(searchText))
-        const json = data.json()
-        if (data.ok && !("errors" in json)) {
-          resolve(json)
-        } else {
-          reject(json)
-        }
-      } catch (error) {
-        reject(error)
-      }
-    })
-  }
-  // フォロー一覧とか
-  async function getFollowing() {
-    return new Promise<{
-      ids: string[]
-    }>(async (resolve, reject) => {
-      try {
-        const data = localDebug
-          ? //NOTE テスト用
-            new Response(
-              await new Promise((resolve) =>
-                setTimeout(
-                  () => resolve(JSON.stringify(testdata.following)),
-                  1000
-                )
-              )
-            )
-          : await get("/following")
-        const json = data.json()
-        if (data.ok && !("errors" in json)) {
-          resolve(json)
-        } else {
-          reject(json)
-        }
-      } catch (error) {
-        reject(error)
-      }
-    })
-  }
-  // 対象のユーザーを取得したりする
-  let creating = false
-  let selectedUsers = 0
-  async function createUsers() {
-    creating = true
-    selectedUsers = 0
-    promiseUsers = new Promise<Users>(async (resolve, reject) => {
-      try {
-        Promise.all([search(), getFollowing()])
-          .then(([searchResult, following]) => {
-            let result: Users = {}
-            for (const { user } of searchResult.statuses) {
-              if (user.id_str in result) continue
-              const isFollowing = following.ids.includes(user.id_str)
-              result[user.id_str] = {
-                following: isFollowing,
-                data: user,
-                cheched: !isFollowing,
-              }
-            }
-            resolve(result)
-          })
-          .catch((err) => {
-            reject(err)
-          })
-          .finally(() => (creating = false))
-      } catch (error) {
-        reject(error)
-        creating = false
-      }
-    })
-  }
   let blocklist = "EjkZ3If77PWnyAM"
   let blocktype: "screen_name" | "id" = "screen_name"
   let blocking = false
@@ -130,15 +41,6 @@
   async function block() {
     console.log(blocktype)
     blocking = true
-    // const promiseUsersCopy = { ...(await promiseUsers) }
-    // promiseUsers = null
-    // selectedUsers = 0
-    // blockIds = Object.values(promiseUsersCopy)
-    //   .map(({ cheched, data }) => {
-    //     if (!cheched) return
-    //     return data.id_str
-    //   })
-    //   .filter((e) => e)
     blockIds = blocklist.split(",")
     promiseBlockUsers = new Promise<BlockUsers>(async (resolve) => {
       blockProgress = 0
@@ -250,108 +152,7 @@
         disabled={!Boolean(blocklist) || blocking}>ブロックする</button
       >
     </div>
-    {#if promiseUsers !== null}
-      {#await promiseUsers then users}
-        {#if Object.keys(users).length}
-          {(() => {
-            selectedUsers = Object.values(users).filter(
-              ({ cheched }) => cheched
-            ).length
-            return ""
-          })()}
-          <div class="users_container" transition:fade={duration}>
-            <header>
-              <span>
-                {#key selectedUsers}
-                  <span in:fade={duration}>{selectedUsers}</span>
-                {/key}
-                <span>
-                  / {Object.keys(users).length} 人を選択済み
-                </span>
-              </span>
-              {#if Object.values(users).some(({ cheched }) => !cheched)}
-                <button
-                  on:click={() => {
-                    Object.keys(users).forEach((key) => {
-                      users[key].cheched = true
-                    })
-                  }}
-                >
-                  <i>done_all</i>
-                </button>
-              {:else}
-                <button
-                  on:click={() => {
-                    Object.keys(users).forEach((key) => {
-                      users[key].cheched = false
-                    })
-                  }}
-                >
-                  <i>remove_done</i>
-                </button>
-              {/if}
-            </header>
-            {#each Object.values(users) as { data, cheched }}
-              {#if isFullUser(data)}
-                <button
-                  on:click={() => (cheched = !cheched)}
-                  on:focus={(e) => {
-                    const elem = e.currentTarget
-                    const clientTop = elem.getBoundingClientRect().top
-                    const topCoverClientHeight = 16 * 5
-                    const usersContainerClientHeight = 16 * 2 + 22
-                    if (
-                      clientTop <=
-                      topCoverClientHeight + usersContainerClientHeight
-                    )
-                      window.scrollTo(
-                        0,
-                        window.pageYOffset +
-                          clientTop -
-                          window.innerHeight / 1.5
-                      )
-                  }}
-                >
-                  <img
-                    loading="lazy"
-                    src={data.profile_image_url_https}
-                    alt={data.screen_name}
-                  />
-                  <span class="username">
-                    {data.name}
-                    <a
-                      href={"https://twitter.com/" + data.screen_name}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      on:click={(e)=>{
-                        e.stopPropagation()
-                      }}
-                    >
-                      @{data.screen_name}
-                    </a>
-                  </span>
-                  <span class="description">
-                    {data.description}
-                  </span>
-                  <i class="check"
-                    >{cheched ? "check_box" : "check_box_outline_blank"}</i
-                  >
-                </button>
-              {/if}
-            {/each}
-          </div>
-        {:else}
-          <p class="error_container" transition:slide={duration}>
-            対象のユーザーが見つかりませんでした。<br
-            />別の検索ワードをお試しください。
-          </p>
-        {/if}
-      {:catch error}
-        <p class="error_container" transition:slide={duration}>
-          エラーが発生しました。<br />しばらくしてからもう一度お試しください。
-        </p>
-      {/await}
-    {/if}
+    
   </div>
 </main>
 
