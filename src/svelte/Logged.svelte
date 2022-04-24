@@ -32,8 +32,8 @@
     })
   }
 
-  let blocklist = "EjkZ3If77PWnyAM"
-  let blocktype: "screen_name" | "id" = "screen_name"
+  let blocklist = "1517951340336402432,1515252940608778240,1235518101501796352"
+  let blocktype: "screen_name" | "id" = "id"
   let blocking = false
   let blockIds = []
   let blockProgress = 0
