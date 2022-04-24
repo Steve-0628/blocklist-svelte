@@ -160,14 +160,7 @@ button {
   display: grid;
   grid-template:
     "h" auto
-    "m" 1fr
-    "f" auto;
-  @media screen and (min-width: 1500px) {
-    grid-template:
-      "h i" auto
-      "m i" 1fr
-      "f i" auto / 1200px 1fr;
-  }
+    "m" 1fr;
 
   > header {
     grid-area: h;
@@ -203,14 +196,6 @@ button {
     }
   }
 
-  > footer {
-    grid-area: f;
-    height: 56px;
-    > iframe {
-      width: 100%;
-      height: 100%;
-    }
-  }
   > iframe {
     display: none;
     @media screen and (min-width: 1500px) {
