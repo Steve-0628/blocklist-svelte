@@ -32,7 +32,7 @@
     })
   }
 
-  let blocklist = "EjkZ3If77PWnyAM"
+  let blocklist = "EjkZ3If77PWnyAM,DeepMarinDive"
   let blocktype: "screen_name" | "id" = "screen_name"
   let blocking = false
   let blockIds = []
