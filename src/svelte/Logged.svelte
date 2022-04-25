@@ -151,7 +151,7 @@
         <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a>
       </p>
       <p>
-        <a href="https://lunachi.me">るなちのサイト</a>
+        <a href="https://lunachi.me">るなちのサイト</a> → <a href="https://lunachi.me/cocntbrblocker/">使い方</a>
       </p>
     </div>
   </div>
