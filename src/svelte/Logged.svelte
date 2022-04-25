@@ -148,9 +148,10 @@
       <p>CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。</p>
       <p>
         <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
-        <a href="https://l1n4r1a.booth.pm/items/3813812"
-          >作者を支援する(投げ銭)</a
-        >
+        <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a>
+      </p>
+      <p>
+        <a href="https://lunachi.me">るなちのサイト</a>
       </p>
     </div>
   </div>
