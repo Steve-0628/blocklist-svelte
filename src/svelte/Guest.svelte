@@ -17,8 +17,11 @@
         定期的にアカウント情報の追加を行っているので出来れば一日に一回程度の使用をオススメします。
       </p>
       <p>
-        <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a><br>
-      <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a>
+        <a href="https://twitter.com/CoCntbrBlocker">アプリ開発アカウント</a><br>
+      <a href="https://l1n4r1a.booth.pm/items/3813812">Boothで作者を支援する(投げ銭)</a>
+      </p>
+      <p>
+        <a href="https://lunachi.me">るなちのサイト</a><br>
       </p>
     </section>
   </div>
