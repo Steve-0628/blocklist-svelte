@@ -8,7 +8,7 @@
 
   //NOTE テスト用
   // import testdata from "../../testdata.json"
-  const testdata = {following: {}, search: {}}
+  const testdata = { following: {}, search: {} }
   const localDebug = false
 
   export let cookie
@@ -32,16 +32,18 @@
     })
   }
 
-  let blocklist = "1517951340336402432,1515252940608778240,1235518101501796352,1518263222188802048"
+  let blocklist =
+    "1517951340336402432,1515252940608778240,1235518101501796352,1518263222188802048"
   let blocktype: "screen_name" | "id" = "id"
   let blocking = false
-  let blockIds = []
   let blockProgress = 0
   let promiseBlockUsers: Promise<BlockUsers> = null
+
+  $: blockIds = blocklist.split(",").filter((v) => v !== "")
+
   async function block() {
     console.log(blocktype)
     blocking = true
-    blockIds = blocklist.split(",")
     promiseBlockUsers = new Promise<BlockUsers>(async (resolve) => {
       blockProgress = 0
       const result: BlockUsers = {}
@@ -91,7 +93,7 @@
             ><span>{Math.round((blockProgress / blockIds.length) * 100)}</span
             >%</span
           >
-        {:then blockUsers}
+        {:then}
           <svg
             class="block_complete_icon"
             transition:slide={duration}
@@ -119,20 +121,37 @@
   <div class="sn_id_radio">
     <div>
       <div>
-        <input type="radio" id="screen_name" name="type" value="screen_name" checked bind:group={blocktype}>
+        <input
+          type="radio"
+          id="screen_name"
+          name="type"
+          value="screen_name"
+          checked
+          bind:group={blocktype}
+        />
         <label for="screen_name">Screen Name</label>
       </div>
       <div>
-        <input type="radio" id="id" name="type" value="id" bind:group={blocktype}>
+        <input
+          type="radio"
+          id="id"
+          name="type"
+          value="id"
+          bind:group={blocktype}
+        />
         <label for="id">ID</label>
       </div>
     </div>
-    <div class="coc_info">CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br>現在<b>{blocklist.split(",").length} accounts</b><br>
+    <div class="coc_info">
+      CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br
+      />現在<b>{blockIds.length} accounts</b><br />
       <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
-      <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a></div>
+      <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a
+      >
+    </div>
   </div>
 
-  <textarea class="block_users_textarea" bind:value={blocklist} ></textarea>
+  <textarea class="block_users_textarea" bind:value={blocklist} />
   <div class="sticky_container">
     <div class="top_cover">
       <button
@@ -154,7 +173,6 @@
         disabled={!Boolean(blocklist) || blocking}>ブロックする</button
       >
     </div>
-    
   </div>
 </main>
 
