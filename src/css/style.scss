@@ -45,7 +45,6 @@
   --base-radius: calc(var(--base-size) / 4);
 }
 
-
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -174,16 +173,20 @@ button {
   display: grid;
   grid-template:
     "h" auto
-    "m" 1fr;
+    "m" 1fr
+    "f" auto;
 
   > header {
     grid-area: h;
     height: 56px;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
     > h1 {
-      font-size: 2em;
-      margin-left:5%;
+      font-size: 2rem;
     }
     > iframe {
       grid-area: i;
@@ -199,13 +202,39 @@ button {
     > .search_box {
       margin-top: 1rem;
     }
-    > .sn_id_radio {
-      display: flex;
+    > .top_container {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      > .sn_id_radio {
+        background-color: var(--color-fore);
+        padding: 0.5rem;
+        border-radius: var(--base-radius);
+        display: flex;
+        flex-direction: column;
+
+        > label {
+          padding: 0.5rem;
+          border-radius: var(--base-radius);
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          > input[type="radio"] {
+            display: none;
+          }
+          &.checked {
+            color: var(--color-fore);
+            background-color: var(--color-text);
+          }
+        }
+      }
 
       > .coc_info {
-        // background-color: #fff3;
+        background-color: var(--color-fore);
+        padding: 1rem;
         border-radius: var(--base-radius);
-        padding-left:5%;
       }
     }
   }
@@ -224,6 +253,7 @@ button {
 .users_count {
   height: 2rem;
   text-align: center;
+  margin-bottom: 1rem;
 
   > span {
     font-size: 2rem;
@@ -231,10 +261,12 @@ button {
 }
 
 .block_users_textarea {
-  background-color: #f6f4e1;
-  width:100%;
-  padding: 3px;
-  border: 1px solid #714116
+  background-color: var(--color-fore);
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--base-radius);
+  resize: vertical;
+  margin-bottom: 1rem;
 }
 
 .search_box {
@@ -290,8 +322,8 @@ button {
 }
 
 .sticky_container {
+  margin-bottom: 1rem;
   > .top_cover {
-    padding: 1rem 0;
     background-color: var(--color-back);
     position: sticky;
     top: 0;
@@ -419,4 +451,16 @@ button {
       fill: var(--color-accent);
     }
   }
+}
+
+footer {
+  grid-area: f;
+  font-size: 0.8rem;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }

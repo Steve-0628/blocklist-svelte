@@ -81,6 +81,7 @@
 
 <header>
   <h1>BlockList</h1>
+  <a href="/?logout=true">ログアウト</a>
 </header>
 
 <main id="logged">
@@ -120,9 +121,9 @@
     {/await}
   {/if}
 
-  <div class="sn_id_radio">
-    <div>
-      <div>
+  <div class="top_container">
+    <div class="sn_id_radio">
+      <label class={blocktype === "screen_name" ? "checked" : ""}>
         <input
           type="radio"
           id="screen_name"
@@ -130,10 +131,9 @@
           value="screen_name"
           checked
           bind:group={blocktype}
-        />
-        <label for="screen_name">Screen Name</label>
-      </div>
-      <div>
+        />Screen Name
+      </label>
+      <label class={blocktype === "id" ? "checked" : ""}>
         <input
           type="radio"
           id="id"
@@ -141,8 +141,8 @@
           value="id"
           bind:group={blocktype}
         />
-        <label for="id">ID</label>
-      </div>
+        ID
+      </label>
     </div>
     <div class="coc_info">
       <p>CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。</p>
@@ -182,7 +182,21 @@
     </div>
   </div>
 </main>
-
+<footer>
+  <p>ソースコード</p>
+  <p>
+    <a
+      href="https://github.com/Steve-0628/blocklist-svelte"
+      target="_blank"
+      rel="noopener">フロントエンド</a
+    >
+    <a
+      href="https://github.com/Steve-0628/blocker"
+      target="_blank"
+      rel="noopener">バックエンド</a
+    >
+  </p>
+</footer>
 <!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
 </footer>
