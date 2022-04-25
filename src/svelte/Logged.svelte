@@ -131,7 +131,7 @@
           value="screen_name"
           checked
           bind:group={blocktype}
-        />Screen Name
+        />Screen Name (@ユーザー名)
       </label>
       <label class={blocktype === "id" ? "checked" : ""}>
         <input
@@ -141,7 +141,7 @@
           value="id"
           bind:group={blocktype}
         />
-        ID
+        User ID (ユーザー固有のID)
       </label>
     </div>
     <div class="coc_info">
