@@ -122,7 +122,7 @@
   {/if}
 
   <div class="top_container">
-    <div class="sn_id_radio">
+    <div class="sn_id_radio" on:click={() => {blocklist = ""}}>
       <label class={blocktype === "screen_name" ? "checked" : ""}>
         <input
           type="radio"
