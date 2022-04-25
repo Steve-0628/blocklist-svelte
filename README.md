@@ -1,10 +1,10 @@
-# bulkblock-frontend
-BulkBlock(仮)のsvelte製フロントエンド
+# blocklist
+BlockListのsvelte製フロントエンド
 
 ## Build
 ```sh
-$ git clone https://github.com/hakunagi/bulkblock-frontend.git
-$ cd bulkblock-frontend
+$ git clone https://github.com/steve-0628/blocklist-svelte.git
+$ cd blocklist-svelte
 $ yarn
 $ yarn build
 ```
