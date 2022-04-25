@@ -59,9 +59,11 @@
                 )
               )
             : await post("/block?" + blocktype + "=" + id)
-          const { ok, statusText } = data
+          const { statusText } = data
+          const dataJson = await data.json()
+          const ok = !("errors" in dataJson)
           result[id] = {
-            data: data.ok ? await data.json() : undefined,
+            data: ok ? await dataJson : undefined,
             ok,
             statusText,
           }
@@ -143,11 +145,13 @@
       </div>
     </div>
     <div class="coc_info">
-      CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。<br
-      />現在<b>{blockIds.length} accounts</b><br />
-      <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
-      <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a
-      >
+      <p>CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。</p>
+      <p>
+        <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
+        <a href="https://l1n4r1a.booth.pm/items/3813812"
+          >作者を支援する(投げ銭)</a
+        >
+      </p>
     </div>
   </div>
 
@@ -170,7 +174,10 @@
             block()
           })
         }}
-        disabled={!Boolean(blocklist) || blocking}>ブロックする</button
+        disabled={!Boolean(blocklist) || blocking}
+        >{blockIds.length
+          ? `${blockIds.length}人をブロックする`
+          : `${blocktype}が指定されていません`}</button
       >
     </div>
   </div>
