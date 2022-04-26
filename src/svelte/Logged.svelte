@@ -150,6 +150,7 @@
       ※アカウント削除済のアカウントはブロックできない為、登録数と実際のブロック数が異なる場合があります。<br>
       最新情報は開発アカウントをご確認ください。
       </p>
+      <hr>
       <p>
         <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
         <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a>
