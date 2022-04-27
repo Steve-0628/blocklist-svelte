@@ -242,8 +242,11 @@ button {
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.5em;
-      > dt::after {
-        content: ":";
+      > dt {
+        word-break: break-all;
+        &::after {
+          content: ":";
+        }
       }
     }
   }
