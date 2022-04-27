@@ -108,7 +108,7 @@
 
 <header>
   <h1>BlockList</h1>
-  <a href="/?logout=true">ログアウト</a>
+  <!-- <a href="/?logout=true">ログアウト</a> -->
 </header>
 
 <main id="logged">
