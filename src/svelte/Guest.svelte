@@ -4,7 +4,7 @@
 
 <main id="guest">
   <div>
-    <h1>BlockList</h1>
+    <h1>CoCntbrBlocker</h1>
     <section>
       <h2>About</h2>
       <p>
