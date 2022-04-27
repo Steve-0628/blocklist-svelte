@@ -120,48 +120,83 @@
       </div>
     {/await}
   {/if}
-
-  <div class="top_container">
-    <div class="sn_id_radio" on:click={() => {blocklist = ""}}>
-      <label class={blocktype === "screen_name" ? "checked" : ""}>
-        <input
-          type="radio"
-          id="screen_name"
-          name="type"
-          value="screen_name"
-          checked
-          bind:group={blocktype}
-        />Screen Name (@ユーザー名)
-      </label>
-      <label class={blocktype === "id" ? "checked" : ""}>
-        <input
-          type="radio"
-          id="id"
-          name="type"
-          value="id"
-          bind:group={blocktype}
-        />
-        User ID (ユーザー固有のID)
-      </label>
+  {#if promiseBlockUsers === null}
+    <div class="container" transition:slide={{ duration: duration.duration * 2 }}>
+      <div class="coc_info">
+        <div class="info_text">
+          <p>CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。</p>
+          <p>
+            ※アカウント削除済のアカウントはブロックできない為、登録数と実際のブロック数が異なる場合があります。<br
+            />
+            最新情報は開発アカウントをご確認ください。
+          </p>
+        </div>
+        <div class="links">
+          <ul>
+            <li>
+              <a
+                href="https://twitter.com/CoCntbrBlocker"
+                target="_blank"
+                rel="noopener">開発アカウント</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://l1n4r1a.booth.pm/items/3813812"
+                target="_blank"
+                rel="noopener">作者を支援する(投げ銭)</a
+              >
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="https://lunachi.me" target="_blank" rel="noopener"
+                >るなちのサイト</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://lunachi.me/cocntbrblocker/"
+                target="_blank"
+                rel="noopener">このツールの使い方</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="radio_container">
+        <div
+          class="sn_id_radio"
+          on:click={() => {
+            blocklist = ""
+          }}
+        >
+          <label class={blocktype === "screen_name" ? "checked" : ""}>
+            <input
+              type="radio"
+              id="screen_name"
+              name="type"
+              value="screen_name"
+              checked
+              bind:group={blocktype}
+            />Screen Name (@ユーザー名)
+          </label>
+          <label class={blocktype === "id" ? "checked" : ""}>
+            <input
+              type="radio"
+              id="id"
+              name="type"
+              value="id"
+              bind:group={blocktype}
+            />
+            User ID (ユーザー固有のID)
+          </label>
+        </div>
+        <textarea class="block_users_textarea" bind:value={blocklist} />
+      </div>
     </div>
-    <div class="coc_info">
-      <p>CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。</p>
-      <p>
-      ※アカウント削除済のアカウントはブロックできない為、登録数と実際のブロック数が異なる場合があります。<br>
-      最新情報は開発アカウントをご確認ください。
-      </p>
-      <hr>
-      <p>
-        <a href="https://twitter.com/CoCntbrBlocker">開発アカウント</a>/
-        <a href="https://l1n4r1a.booth.pm/items/3813812">作者を支援する(投げ銭)</a>
-      </p>
-      <p>
-        <a href="https://lunachi.me">るなちのサイト</a> → <a href="https://lunachi.me/cocntbrblocker/">使い方</a>
-      </p>
-    </div>
-  </div>
+  {/if}
 
-  <textarea class="block_users_textarea" bind:value={blocklist} />
   <div class="sticky_container">
     <div class="top_cover">
       <button
