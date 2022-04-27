@@ -5,6 +5,7 @@
   const duration = { duration: 300 }
 
   import ProgressCircle from "svelte-progresscircle"
+  import type { FullUser } from "twitter-d"
 
   //NOTE テスト用
   // import testdata from "../../testdata.json"
@@ -38,12 +39,20 @@
   let blocking = false
   let blockProgress = 0
   let promiseBlockUsers: Promise<BlockUsers> = null
+  let blockFailureList: {
+    accountId: string
+    code: number
+    message: string
+  }[] = []
+  let openBlockFailureInfo = false
 
   $: blockIds = blocklist.split(",").filter((v) => v !== "")
 
   async function block() {
     console.log(blocktype)
     blocking = true
+    blockFailureList = []
+    openBlockFailureInfo = false
     promiseBlockUsers = new Promise<BlockUsers>(async (resolve) => {
       blockProgress = 0
       const result: BlockUsers = {}
@@ -60,12 +69,30 @@
               )
             : await post("/block?" + blocktype + "=" + id)
           const { statusText } = data
-          const dataJson = await data.json()
+          const dataJson:
+            | FullUser
+            | {
+                errors: {
+                  code: number
+                  message: string
+                }[]
+              } = await data.json()
           const ok = !("errors" in dataJson)
           result[id] = {
-            data: ok ? await dataJson : undefined,
+            data: ok ? dataJson : undefined,
             ok,
             statusText,
+          }
+          if (!ok) {
+            const { errors } = dataJson
+            blockFailureList = [
+              ...blockFailureList,
+              {
+                accountId: id,
+                code: errors[0].code,
+                message: errors[0].message,
+              },
+            ]
           }
           blockProgress++
         })
@@ -120,8 +147,36 @@
       </div>
     {/await}
   {/if}
+  {#if blockFailureList.length}
+    <div class="block_failure_container" transition:slide={duration}>
+      <button
+        class="block_failure_btn"
+        on:click={() => (openBlockFailureInfo = !openBlockFailureInfo)}
+        ><span>{blockFailureList.length}人のブロックに失敗しました</span><i
+          >{openBlockFailureInfo ? "expand_less" : "expand_more"}</i
+        ></button
+      >
+      {#if openBlockFailureInfo}
+        <div class="block_failure_info" transition:slide={duration}>
+          <ul>
+            {#each blockFailureList as blockFailure}
+              <li>
+                <dl>
+                  <dt>{blockFailure.accountId}</dt>
+                  <dd>{blockFailure.message}</dd>
+                </dl>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      {/if}
+    </div>
+  {/if}
   {#if promiseBlockUsers === null}
-    <div class="container" transition:slide={{ duration: duration.duration * 2 }}>
+    <div
+      class="container"
+      transition:slide={{ duration: duration.duration * 2 }}
+    >
       <div class="coc_info">
         <div class="info_text">
           <p>CoCシナリオネタバレアカウントを一括ブロックすることが出来ます。</p>
