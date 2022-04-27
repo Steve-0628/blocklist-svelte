@@ -232,6 +232,8 @@ button {
   background-color: var(--color-fore);
   padding: 0.5rem;
   border-radius: var(--base-radius);
+  max-height: 400px;
+  overflow-x: auto;
   > ul {
     display: flex;
     flex-direction: column;
