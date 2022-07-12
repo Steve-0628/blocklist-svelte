@@ -197,7 +197,7 @@
             </li>
             <li>
               <a
-                href="https://l1n4r1a.booth.pm/items/3813812"
+                href="https://l1n4r1a.booth.pm/items/3996689"
                 target="_blank"
                 rel="noopener">作者を支援する(投げ銭)</a
               >
