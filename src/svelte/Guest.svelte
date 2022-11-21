@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  let href = "https://blocker.hmpf.club/login?blocklist=true"
+  let href = "https://hisubway.hmpf.club/login?blocklist=true"
 </script>
 
 <main id="guest">
