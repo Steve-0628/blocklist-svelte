@@ -15,7 +15,7 @@
   export let cookie
 
   function post(url) {
-    const u = new URL("https://blocker.hmpf.club" + url)
+    const u = new URL("https://hisubway.hmpf.club" + url)
     u.searchParams.set("access_token", cookie["access_token"])
     u.searchParams.set("access_token_secret", cookie["access_token_secret"])
     url = u.toString()
@@ -24,7 +24,7 @@
     })
   }
   function get(url) {
-    const u = new URL("https://blocker.hmpf.club" + url)
+    const u = new URL("https://hisubway.hmpf.club" + url)
     u.searchParams.set("access_token", cookie["access_token"])
     u.searchParams.set("access_token_secret", cookie["access_token_secret"])
     url = u.toString()
