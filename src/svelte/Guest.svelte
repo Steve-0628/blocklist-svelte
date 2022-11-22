@@ -18,7 +18,7 @@
       </p>
       <p>
         <a href="https://twitter.com/CoCntbrBlocker">アプリ開発アカウント</a><br>
-      <a href="https://l1n4r1a.booth.pm/items/3813812">Boothで作者を支援する(投げ銭)</a>
+      <a href="https://cocntbrblocker.fanbox.cc/">Boothで作者を支援する(投げ銭)</a>
       </p>
       <p>
         <a href="https://lunachi.me">るなちのサイト</a> → <a href="https://lunachi.me/cocntbrblocker/">使い方</a><br>
