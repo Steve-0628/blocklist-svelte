@@ -18,10 +18,11 @@
       </p>
       <p>
         <a href="https://twitter.com/CoCntbrBlocker">アプリ開発アカウント</a><br>
-      <a href="https://cocntbrblocker.fanbox.cc/">pixivFANBOXで支援する</a>
+        <a href="https://cocntbrblocker.fanbox.cc/">pixivFANBOXで支援する</a><br>
+        <a href="https://l1n4r1.art/cnb/supporter.html">FANBOX支援者一覧</a>
       </p>
       <p>
-        <a href="https://lunachi.me">るなちのサイト</a> → <a href="https://lunachi.me/cocntbrblocker/">使い方</a><br>
+        <a href="https://l1n4r1.art">るなちのサイト</a> → <a href="https://lunachi.me/cocntbrblocker/">使い方</a><br>
       </p>
     </section>
   </div>
