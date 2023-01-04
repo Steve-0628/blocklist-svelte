@@ -199,7 +199,9 @@
               <a
                 href="https://cocntbrblocker.fanbox.cc/"
                 target="_blank"
-                rel="noopener">作者を支援する(投げ銭)</a><br>
+                rel="noopener">作者を支援する(投げ銭)</a>
+            </li> 
+            <li>
                <a
                 href="https://l1n4r1.art/cnb/supporter.html"
                 target="_blank"
