@@ -199,13 +199,17 @@
               <a
                 href="https://cocntbrblocker.fanbox.cc/"
                 target="_blank"
-                rel="noopener">作者を支援する(投げ銭)</a
-              >
+                rel="noopener">作者を支援する(投げ銭)</a><br>
+               <a
+                href="https://l1n4r1.art/cnb/supporter.html"
+                target="_blank"
+                rel="noopener">FANBOX支援者一覧</a>
+              
             </li>
           </ul>
           <ul>
             <li>
-              <a href="https://lunachi.me" target="_blank" rel="noopener"
+              <a href="https://l1n4r1.art" target="_blank" rel="noopener"
                 >るなちのサイト</a
               >
             </li>
