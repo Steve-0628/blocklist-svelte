@@ -286,7 +286,7 @@
 </main>
 <footer>
 <p>
-  <a href=https://lunachi.me/notes/cnb-accounts.html>⚠アカウント一覧⚠</a>
+  <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
   </p>
   <hr>
   <p>ソースコード</p>
