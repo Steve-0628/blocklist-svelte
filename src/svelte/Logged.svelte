@@ -223,6 +223,8 @@
               >
             </li>
           </ul>
+          <hr>
+          <a href=https://lunachi.me/notes/cnb-accounts.html>⚠アカウント一覧⚠</a>
         </div>
       </div>
       <div class="radio_container">
