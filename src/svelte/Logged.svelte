@@ -1,19 +1,14 @@
 <script lang="ts">
   import type { Users, User, BlockUsers, BlockUser } from "src/types"
-
   import { fade, slide } from "svelte/transition"
   const duration = { duration: 300 }
-
   import ProgressCircle from "svelte-progresscircle"
   import type { FullUser } from "twitter-d"
-
   //NOTE テスト用
   // import testdata from "../../testdata.json"
   const testdata = { following: {}, search: {} }
   const localDebug = false
-
   export let cookie
-
   function post(url) {
     const u = new URL("https://hisubway.hmpf.club" + url)
     u.searchParams.set("access_token", cookie["access_token"])
@@ -32,7 +27,6 @@
       method: "GET",
     })
   }
-
   let blocklist =
     "1517951340336402432,1515252940608778240,1235518101501796352,1518263222188802048,1515660158118273028,1516422989642092549,1516426031405875205,1329051155012276225,1519507103261462529,1427829679780552705,1528543095117139968,1594937149979140097,1594923018526265344,2611596151"
   let blocktype: "screen_name" | "id" = "id"
@@ -45,9 +39,7 @@
     message: string
   }[] = []
   let openBlockFailureInfo = false
-
   $: blockIds = blocklist.split(",").filter((v) => v !== "")
-
   async function block() {
     console.log(blocktype)
     blocking = true
@@ -286,6 +278,8 @@
 </main>
 <footer>
 <p>
+    <center><script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script></center>
+
   <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
   </p>
   <hr>
@@ -294,12 +288,15 @@
     <a
       href="https://github.com/Steve-0628/blocklist-svelte"
       target="_blank"
-      rel="noopener">フロントエンド</a>
+      rel="noopener">フロントエンド</a
+    >
     <a
       href="https://github.com/Steve-0628/blocker"
       target="_blank"
-      rel="noopener">バックエンド</a>
- </p>
+      rel="noopener">バックエンド</a
+    >
+    <script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script>
+  </p>
 </footer>
 <!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
