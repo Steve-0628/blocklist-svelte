@@ -287,9 +287,8 @@
 <footer>
 <p>
     <center>
-      <div class="admax-ads" data-admax-id="34436bebbe15e4d72fca6a103aa5e993" style="display:inline-block;width:728px;height:90px;"></div>
-      <script type="text/javascript">(admaxads = window.admaxads || []).push({admax_id: "34436bebbe15e4d72fca6a103aa5e993",type: "banner"});</script>
-      <script type="text/javascript" charset="utf-8" src="https://adm.shinobi.jp/st/t.js" async></script></center>
+      <script src="https://adm.shinobi.jp/s/34436bebbe15e4d72fca6a103aa5e993"></script>
+    </center>
 
   <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
   </p>
