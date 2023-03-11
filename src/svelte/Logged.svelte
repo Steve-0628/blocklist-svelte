@@ -276,12 +276,9 @@
     </div>
   </div>
 </main>
-<footer>
 <div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div>
-  <p>
 
-  <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
-  </p>
+<footer>
   <hr>
   <p>ソースコード</p>
   <p>
@@ -295,8 +292,7 @@
       target="_blank"
       rel="noopener">バックエンド</a
     >
-    <script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script>
-  </p>
+  </p>   <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
 </footer>
 <!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
