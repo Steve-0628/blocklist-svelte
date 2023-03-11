@@ -303,6 +303,7 @@
       target="_blank"
       rel="noopener">バックエンド</a
     >
+    <script src="https://adm.shinobi.jp/s/402bbb759572d786b2743e2806365db6"></script>
   </p>
 </footer>
 <!-- <footer>
