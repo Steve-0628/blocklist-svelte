@@ -27,8 +27,9 @@
     </section>
   </div>
   <a class="block" {href}><span>Twitterでログイン</span></a>
+<div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div>
+
 </main>
-<p><div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div></p>
 <!--  <iframe loading="lazy" src={footerUrl} title="footer" /> -->
 <!-- </footer> -->
 <!-- <iframe src={sideUrl} title="side" /> -->
