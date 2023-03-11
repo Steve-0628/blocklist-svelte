@@ -277,7 +277,7 @@
   </div>
 </main>
 <footer>
-<div class="admax-ads" data-admax-id="6759c3f9c03cb63f9315e7fde827a72d" style="display:inline-block;width:728px;height:90px;"></div>
+<div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div>
   <p>
 
   <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
