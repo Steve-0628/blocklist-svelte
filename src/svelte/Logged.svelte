@@ -276,7 +276,7 @@
     </div>
   </div>
 </main>
-<div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div>
+<center><div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div></center>
 
 <footer>
   <hr>
