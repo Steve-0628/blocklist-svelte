@@ -110,7 +110,7 @@
   <h1>CoCntbrBlocker</h1>
   <!-- <a href="/?logout=true">ログアウト</a> -->
 </header>
-
+<center>https://blocklist.hmpf.club/</center>
 <main id="logged">
   {#if promiseBlockUsers !== null}
     <div
@@ -285,6 +285,7 @@
   </div>
 </main>
 <footer>
+  <center><script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script></center>
 <p>
   <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
   </p>
