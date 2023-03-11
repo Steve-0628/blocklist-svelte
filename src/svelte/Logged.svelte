@@ -300,9 +300,6 @@
       target="_blank"
       rel="noopener">バックエンド</a>
  </p>
-      <center>
-<script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script>
-    </center>
 </footer>
 <!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
