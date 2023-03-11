@@ -28,7 +28,7 @@
   </div>
   <a class="block" {href}><span>Twitterでログイン</span></a>
 </main>
-<p><center><script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script></center></p>
+<p><div class="admax-switch" data-admax-id="4712ed879faa0e59d92f539c630e1510" style="display:inline-block;"></div></p>
 <!--  <iframe loading="lazy" src={footerUrl} title="footer" /> -->
 <!-- </footer> -->
 <!-- <iframe src={sideUrl} title="side" /> -->
