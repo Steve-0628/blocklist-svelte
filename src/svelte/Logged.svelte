@@ -286,10 +286,6 @@
 </main>
 <footer>
 <p>
-    <center>
-      <script src="https://adm.shinobi.jp/s/febb239fc04a3bc730b11c6af6a02db3"></script>
-    </center>
-
   <a href="https://lunachi.me/notes/cnb-accounts.html">⚠アカウント一覧⚠</a>
   </p>
   <hr>
@@ -307,6 +303,9 @@
     >
     <script src="https://adm.shinobi.jp/s/402bbb759572d786b2743e2806365db6"></script>
   </p>
+      <center>
+<script src="https://adm.shinobi.jp/s/6759c3f9c03cb63f9315e7fde827a72d"></script>
+    </center>
 </footer>
 <!-- <footer>
   <iframe loading="lazy" src={footerUrl} title="footer" />
